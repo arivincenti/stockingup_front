@@ -14,6 +14,62 @@ const routes: Routes = [
         (m) => m.StoresSectionModule
       ),
   },
+  {
+    path: 'categories',
+    loadChildren: () =>
+      import('./categories-section/categories-section.module').then(
+        (m) => m.CategoriesSectionModule
+      ),
+  },
+  {
+    path: 'clients',
+    loadChildren: () =>
+      import('./clients-section/clients-section.module').then(
+        (m) => m.ClientsSectionModule
+      ),
+  },
+  {
+    path: 'employees',
+    loadChildren: () =>
+      import('./employees-section/employees-section.module').then(
+        (m) => m.EmployeesSectionModule
+      ),
+  },
+  {
+    path: 'headings',
+    loadChildren: () =>
+      import('./headings-section/headings-section.module').then(
+        (m) => m.HeadingsSectionModule
+      ),
+  },
+  {
+    path: 'persons',
+    loadChildren: () =>
+      import('./persons-section/persons-section.module').then(
+        (m) => m.PersonsSectionModule
+      ),
+  },
+  {
+    path: 'products',
+    loadChildren: () =>
+      import('./products-section/products-section.module').then(
+        (m) => m.ProductsSectionModule
+      ),
+  },
+  {
+    path: 'tickets',
+    loadChildren: () =>
+      import('./tickets-section/tickets-section.module').then(
+        (m) => m.TicketsSectionModule
+      ),
+  },
+  {
+    path: 'cart',
+    loadChildren: () =>
+      import('./cart-section/cart-section.module').then(
+        (m) => m.CartSectionModule
+      ),
+  },
 ];
 
 @NgModule({
