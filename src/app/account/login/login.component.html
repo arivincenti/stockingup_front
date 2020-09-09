@@ -1,5 +1,53 @@
-<form [formGroup]="loginForm" class="login-form">
-  <input type="text" formControlName='email' placeholder="Email">
-  <input type="text" formControlName='password' placeholder="Contraseña">
-  <button type="button" (click)='login()'>Ingesar</button>
+<form [formGroup]="loginForm" novalidate class="login-form" (ngSubmit)="login($event)">
+  <!-- EMAIL -->
+  <div class="field">
+    <div class="control has-icons-left has-icons-right">
+      <input type="text" class="input" [ngClass]="{'is-success': emailFieldIsValid, 'is-danger': emailFieldIsInvalid}"
+        formControlName='email' placeholder="Email">
+      <span class="icon is-small is-left">
+        <i class="fas fa-at"></i>
+      </span>
+      <span class="icon is-small is-right" *ngIf="emailFieldIsValid; else elseInvalidEmail">
+        <i class="fas fa-check"></i>
+      </span>
+      <ng-template #elseInvalidEmail>
+        <span class="icon is-small is-right">
+          <i class="fas fa-times"></i>
+        </span>
+      </ng-template>
+    </div>
+    <div *ngIf="emailFieldIsInvalid">
+      <p class="help is-danger" *ngIf="emailPatternIsInvalid">Debe ingresar un correo electrónico válido
+      <p class="help is-danger" *ngIf="emailIsRequired">El campo email es requerido
+      </p>
+    </div>
+  </div>
+  <!-- PASSWORD -->
+  <div class="field">
+    <div class="control has-icons-left has-icons-right">
+      <input type="text" class="input"
+        [ngClass]="{'is-success': passwordFieldIsValid, 'is-danger': passwordFieldIsInvalid}" formControlName='password'
+        placeholder="Contraseña">
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+      <span class="icon is-small is-right" *ngIf="passwordFieldIsValid; else elseInvalidpassword">
+        <i class="fas fa-check"></i>
+      </span>
+      <ng-template #elseInvalidpassword>
+        <span class="icon is-small is-right">
+          <i class="fas fa-times"></i>
+        </span>
+      </ng-template>
+    </div>
+    <div *ngIf="passwordFieldIsInvalid">
+      <p class="help is-danger" *ngIf="passwordLengthIsInvalid">La contraseña debe tener un minimo de 3 caracteres
+      <p class="help is-danger" *ngIf="passwordIsRequired">El campo contraseña es requerido
+      </p>
+    </div>
+  </div>
+
+  <div class="field">
+    <button class="button is-fullwidth is-danger" [disabled]="loginForm.invalid">Ingresar</button>
+  </div>
 </form>

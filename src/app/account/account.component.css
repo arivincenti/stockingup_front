@@ -1,7 +1,7 @@
 .container {
   width: 100%;
   height: 100vh;
-  background-color: rgb(230, 140, 50);
+  background-color: white;
   display: grid;
   align-content: center;
 }
@@ -15,15 +15,15 @@
   justify-items: center;
 }
 
-.content .brand {
-  color: white;
+.content .brand > h1 {
+  color: rgb(255, 89, 0);
   font-weight: bolder;
-  font-size: 1.4em;
+  font-size: 2.8em;
 }
 
 .content .forms-container {
   width: 100%;
-  padding: 15px;
-  border: 1px solid white;
-  border-radius: 10px;
+  padding-top: 15px;
+  /* border: 1px solid rgb(225, 101, 7);
+  border-radius: 10px; */
 }
