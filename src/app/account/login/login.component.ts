@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/app-store/app-store.reducer';
+import * as AccountActions from '../account-store/actions/account.actions';
 
 @Component({
   selector: 'app-login',
@@ -7,18 +10,24 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private store: Store<AppState>
+  ) {}
 
   loginForm = this.formBuilder.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(3)]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
   });
 
   ngOnInit(): void {}
 
   login($event: Event) {
     $event.preventDefault();
-    console.log(this.loginForm.value);
+    let credentials = this.loginForm.value;
+    if (this.loginForm.valid) {
+      this.store.dispatch(AccountActions.login({ credentials }));
+    }
     this.loginForm.reset();
   }
 

@@ -20,14 +20,8 @@
             "tsConfig": "tsconfig.app.json",
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": [
-              "./node_modules/bulma/css/bulma.min.css",
-              "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
-              "src/styles.css"
-            ],
-            "scripts": [
-              "node_modules/@fortawesome/fontawesome-free/js/all.min.js"
-            ]
+            "styles": ["src/custom-theme.scss", "src/styles.css"],
+            "scripts": []
           },
           "configurations": {
             "production": {

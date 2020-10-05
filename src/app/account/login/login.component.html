@@ -1,53 +1,33 @@
 <form [formGroup]="loginForm" novalidate class="login-form" (ngSubmit)="login($event)">
-  <!-- EMAIL -->
-  <div class="field">
-    <div class="control has-icons-left has-icons-right">
-      <input type="text" class="input" [ngClass]="{'is-success': emailFieldIsValid, 'is-danger': emailFieldIsInvalid}"
-        formControlName='email' placeholder="Email">
-      <span class="icon is-small is-left">
-        <i class="fas fa-at"></i>
-      </span>
-      <span class="icon is-small is-right" *ngIf="emailFieldIsValid; else elseInvalidEmail">
-        <i class="fas fa-check"></i>
-      </span>
-      <ng-template #elseInvalidEmail>
-        <span class="icon is-small is-right">
-          <i class="fas fa-times"></i>
-        </span>
-      </ng-template>
-    </div>
-    <div *ngIf="emailFieldIsInvalid">
-      <p class="help is-danger" *ngIf="emailPatternIsInvalid">Debe ingresar un correo electrónico válido
-      <p class="help is-danger" *ngIf="emailIsRequired">El campo email es requerido
-      </p>
-    </div>
-  </div>
-  <!-- PASSWORD -->
-  <div class="field">
-    <div class="control has-icons-left has-icons-right">
-      <input type="text" class="input"
-        [ngClass]="{'is-success': passwordFieldIsValid, 'is-danger': passwordFieldIsInvalid}" formControlName='password'
-        placeholder="Contraseña">
-      <span class="icon is-small is-left">
-        <i class="fas fa-lock"></i>
-      </span>
-      <span class="icon is-small is-right" *ngIf="passwordFieldIsValid; else elseInvalidpassword">
-        <i class="fas fa-check"></i>
-      </span>
-      <ng-template #elseInvalidpassword>
-        <span class="icon is-small is-right">
-          <i class="fas fa-times"></i>
-        </span>
-      </ng-template>
-    </div>
-    <div *ngIf="passwordFieldIsInvalid">
-      <p class="help is-danger" *ngIf="passwordLengthIsInvalid">La contraseña debe tener un minimo de 3 caracteres
-      <p class="help is-danger" *ngIf="passwordIsRequired">El campo contraseña es requerido
-      </p>
-    </div>
-  </div>
 
-  <div class="field">
-    <button class="button is-fullwidth is-danger" [disabled]="loginForm.invalid">Ingresar</button>
+  <!-- EMAIL -->
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <mat-icon class="input-icon" color="primary" matPrefix>alternate_email</mat-icon>
+    <input type="text" matInput autocomplete="off" formControlName='email'>
+    <mat-icon color="accent" matSuffix *ngIf="emailFieldIsValid">check_circle_outline</mat-icon>
+    <mat-icon matSuffix color="warn" *ngIf="emailFieldIsInvalid">error_outline</mat-icon>
+    <mat-hint *ngIf="emailPatternIsInvalid">Debe ingresar un email válido</mat-hint>
+    <mat-hint *ngIf="emailIsRequired">El email es obligatorio</mat-hint>
+  </mat-form-field>
+
+  <!-- PASSWORD -->
+  <mat-form-field appearance="outline">
+    <mat-icon class="input-icon" color="primary" matPrefix>lock</mat-icon>
+    <mat-label>Contraseña</mat-label>
+    <input type="text" matInput autocomplete="off" formControlName='password'>
+    <mat-icon color="accent" matSuffix *ngIf="passwordFieldIsValid">check_circle_outline</mat-icon>
+    <mat-icon matSuffix color="warn" *ngIf="passwordFieldIsInvalid">error_outline</mat-icon>
+    <mat-hint *ngIf="passwordLengthIsInvalid">La contraseña debe tener un minimo de 6 caracteres</mat-hint>
+    <mat-hint *ngIf="passwordIsRequired">El campo contraseña es requerido</mat-hint>
+  </mat-form-field>
+
+  <!-- BUTTON -->
+  <div class="buttonContainer">
+    <button mat-raised-button color="warn" [disabled]="loginForm.invalid">Ingresar</button>
+    <div class="other">
+      <a routerLink="/account/reset">Olvide mi contraseña</a>
+      <a routerLink="/account/register">Registrarme</a>
+    </div>
   </div>
 </form>
