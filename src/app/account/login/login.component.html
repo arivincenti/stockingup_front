@@ -1,5 +1,4 @@
 <form [formGroup]="loginForm" novalidate class="login-form" (ngSubmit)="login($event)">
-
   <!-- EMAIL -->
   <mat-form-field appearance="outline">
     <mat-label>Email</mat-label>
@@ -26,8 +25,8 @@
   <div class="buttonContainer">
     <button mat-raised-button color="warn" [disabled]="loginForm.invalid">Ingresar</button>
     <div class="other">
-      <a routerLink="/account/reset">Olvide mi contraseña</a>
-      <a routerLink="/account/register">Registrarme</a>
+      <button mat-button color="primary" routerLink="/account/reset">Olvide mi contraseña</button>
+      <button mat-button color="primary" routerLink="/account/register">Registrarme</button>
     </div>
   </div>
 </form>

@@ -4,6 +4,7 @@ import { AccountComponent } from './account.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { ResetPasswordComponent } from './reset-password/reset-password.component';
+import { ActivateAccountComponent } from './activate-account/activate-account.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'account', pathMatch: 'full' },
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path: 'reset',
         component: ResetPasswordComponent,
+      },
+      {
+        path: 'activate_account/:activation_code',
+        component: ActivateAccountComponent,
       },
     ],
   },

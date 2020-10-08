@@ -1,1 +1,58 @@
-<p>register works!</p>
+<form [formGroup]="registerForm" novalidate class="register-form" (ngSubmit)="register($event)">
+
+  <!-- USERNAME -->
+  <mat-form-field appearance="outline">
+    <mat-label>Nombre de usuario</mat-label>
+    <mat-icon class="input-icon" color="primary" matPrefix>face</mat-icon>
+    <input type="text" matInput autocomplete="off" formControlName='username'>
+    <!-- <mat-icon color="accent" matSuffix *ngIf="emailFieldIsValid">check_circle_outline</mat-icon>
+    <mat-icon matSuffix color="warn" *ngIf="emailFieldIsInvalid">error_outline</mat-icon>
+    <mat-hint *ngIf="emailPatternIsInvalid">Debe ingresar un email válido</mat-hint>
+    <mat-hint *ngIf="emailIsRequired">El email es obligatorio</mat-hint> -->
+  </mat-form-field>
+
+  <!-- EMAIL -->
+  <mat-form-field appearance="outline">
+    <mat-label>Email</mat-label>
+    <mat-icon class="input-icon" color="primary" matPrefix>alternate_email</mat-icon>
+    <input type="text" matInput autocomplete="off" formControlName='email'>
+    <mat-icon color="accent" matSuffix *ngIf="emailFieldIsValid">check_circle_outline</mat-icon>
+    <mat-icon matSuffix color="warn" *ngIf="emailFieldIsInvalid">error_outline</mat-icon>
+    <mat-hint *ngIf="emailPatternIsInvalid">Debe ingresar un email válido</mat-hint>
+    <mat-hint *ngIf="emailIsRequired">El email es obligatorio</mat-hint>
+  </mat-form-field>
+
+  <!-- PASSWORD -->
+  <mat-form-field appearance="outline">
+    <mat-icon class="input-icon" color="primary" matPrefix>lock</mat-icon>
+    <mat-label>Contraseña</mat-label>
+    <input type="text" matInput autocomplete="off" formControlName='password'>
+    <mat-icon color="accent" matSuffix *ngIf="passwordFieldIsValid">check_circle_outline</mat-icon>
+    <mat-icon matSuffix color="warn" *ngIf="passwordFieldIsInvalid">error_outline</mat-icon>
+    <mat-hint *ngIf="passwordLengthIsInvalid">La contraseña debe tener un minimo de 6 caracteres</mat-hint>
+    <mat-hint *ngIf="passwordIsRequired">El campo contraseña es requerido</mat-hint>
+  </mat-form-field>
+
+  <!-- CONFIRM PASSWORD -->
+  <mat-form-field appearance="outline">
+    <mat-icon class="input-icon" color="primary" matPrefix>lock</mat-icon>
+    <mat-label>Confirmar contraseña</mat-label>
+    <input type="text" matInput autocomplete="off" formControlName='confirmPassword'>
+    <mat-icon color="accent" matSuffix *ngIf="passwordFieldIsValid">check_circle_outline</mat-icon>
+    <mat-icon matSuffix color="warn" *ngIf="passwordFieldIsInvalid">error_outline</mat-icon>
+    <mat-hint *ngIf="passwordLengthIsInvalid">La contraseña debe tener un minimo de 6 caracteres</mat-hint>
+    <mat-hint *ngIf="passwordIsRequired">El campo confirmar contraseña es requerido</mat-hint>
+  </mat-form-field>
+
+  <!-- BUTTON -->
+  <div class="buttonContainer">
+    <button mat-raised-button color="warn" [disabled]="registerForm.invalid">Registrarme</button>
+    <mat-hint class="mensaje-exitoso" *ngIf="registroExitoso">Se envió un enlace a tu email, para que actives tu
+      cuenta.</mat-hint>
+    <mat-hint class="mensaje-faild" *ngIf="registroFaild">Oh no! Se produjo un error.</mat-hint>
+    <div class="other">
+      <button mat-button color="primary" routerLink="/account/login">Ya tengo una cuenta</button>
+      <button mat-button color="primary">Solicitar código de activación</button>
+    </div>
+  </div>
+</form>
