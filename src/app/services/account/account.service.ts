@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { map } from 'rxjs/internal/operators/map';
 
 @Injectable({
   providedIn: 'root',
@@ -16,7 +17,7 @@ export class AccountService {
   }
 
   // ==================================================
-  // Login
+  // Register
   // ==================================================
   register(payload: any) {
     return this.http.post(`${environment.path}/account/register`, payload);
@@ -26,7 +27,26 @@ export class AccountService {
   // Check Email
   // ==================================================
   checkEmail(email: string) {
-    return this.http.post(`${environment.path}/account/checkEmail`, email);
+    let payload = { email };
+    return this.http
+      .post(`${environment.path}/account/check_email`, payload)
+      .pipe(
+        map((res) => {
+          console.log(res);
+          return res;
+        })
+      );
+  }
+
+  // ==================================================
+  // Check username
+  // ==================================================
+  checkUsername(username: string) {
+    let payload = { username };
+    return this.http.post(
+      `${environment.path}/account/check_username`,
+      payload
+    );
   }
 
   // ==================================================

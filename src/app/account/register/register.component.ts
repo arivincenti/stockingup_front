@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AccountService } from 'src/app/services/account/account.service';
-import Swal from 'sweetalert2';
+import { UserNameValidation } from '../../util/validations/username.validation';
 
 @Component({
   selector: 'app-register',
@@ -18,7 +18,11 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   registerForm = this.formBuilder.group({
-    username: ['', [Validators.required]],
+    username: [
+      '',
+      [Validators.required],
+      [UserNameValidation.isNotAvaible(this._accountService)],
+    ],
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]],
     confirmPassword: ['', [Validators.required, Validators.minLength(6)]],

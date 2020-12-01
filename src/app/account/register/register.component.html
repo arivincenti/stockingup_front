@@ -5,10 +5,12 @@
     <mat-label>Nombre de usuario</mat-label>
     <mat-icon class="input-icon" color="primary" matPrefix>face</mat-icon>
     <input type="text" matInput autocomplete="off" formControlName='username'>
-    <!-- <mat-icon color="accent" matSuffix *ngIf="emailFieldIsValid">check_circle_outline</mat-icon>
-    <mat-icon matSuffix color="warn" *ngIf="emailFieldIsInvalid">error_outline</mat-icon>
-    <mat-hint *ngIf="emailPatternIsInvalid">Debe ingresar un email válido</mat-hint>
-    <mat-hint *ngIf="emailIsRequired">El email es obligatorio</mat-hint> -->
+    <mat-icon color="accent" matSuffix *ngIf="registerForm.controls['username'].hasError['isNotAvaible']">
+      check_circle_outline</mat-icon>
+    <mat-icon matSuffix color="warn" *ngIf="registerForm.controls['username'].hasError['isNotAvaible']">error_outline
+    </mat-icon>
+    <!-- <mat-hint *ngIf="emailPatternIsInvalid">Debe ingresar un email válido</mat-hint> -->
+    <!-- <mat-hint *ngIf="emailIsRequired">El email es obligatorio</mat-hint> -->
   </mat-form-field>
 
   <!-- EMAIL -->
