@@ -4,7 +4,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@services/account": ["src/app/services/account/account-services"]
+      "@services/account": ["src/app/pages/account/services/account/account-services"]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,
