@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AccountService } from 'src/app/pages/account/services/account.service';
-import { UserNameValidation } from 'src/app/util/validations/username.validation';
+import { UserNameValidation } from 'src/app/validations/username.validation';
 
 @Component({
   selector: 'app-register',

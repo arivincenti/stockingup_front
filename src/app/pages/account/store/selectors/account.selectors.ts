@@ -6,3 +6,8 @@ export const tokenSelector = createSelector(
   account,
   (account) => account.token
 );
+
+export const errorMessage = createSelector(
+  account,
+  (account) => account.error?.message
+);

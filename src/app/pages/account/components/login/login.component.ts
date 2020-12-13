@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs/internal/Observable';
 import { AppState } from 'src/app/core/store/app-store.reducer';
+import { errorMessage } from 'src/app/pages/account/store/selectors/account.selectors';
 import * as AccountActions from '../../store/actions/account.actions';
 
 @Component({
@@ -10,17 +12,22 @@ import * as AccountActions from '../../store/actions/account.actions';
   styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
+  error$: Observable<string>;
+  loginForm: FormGroup;
+
   constructor(
     private formBuilder: FormBuilder,
     private store: Store<AppState>
   ) {}
 
-  loginForm = this.formBuilder.group({
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
-  });
+  ngOnInit(): void {
+    this.loginForm = this.formBuilder.group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+    });
 
-  ngOnInit(): void {}
+    this.error$ = this.store.select(errorMessage);
+  }
 
   login() {
     let credentials = this.loginForm.value;

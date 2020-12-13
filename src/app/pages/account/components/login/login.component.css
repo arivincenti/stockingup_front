@@ -20,6 +20,12 @@ a:hover {
   height: 35px;
 }
 
+.error-container p {
+  color: rgb(214, 0, 0);
+  font-size: .9em;
+  text-align: center;
+}
+
 .buttonContainer {
   display: grid;
   gap: 15px;

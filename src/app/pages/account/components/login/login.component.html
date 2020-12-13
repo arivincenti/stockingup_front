@@ -21,6 +21,10 @@
     <mat-hint *ngIf="passwordIsRequired">El campo contraseña es requerido</mat-hint>
   </mat-form-field>
 
+  <div class="error-container">
+    <p *ngIf="error$ | async as error">{{error}}</p>
+  </div>
+
   <!-- BUTTON -->
   <div class="buttonContainer">
     <button mat-raised-button color="warn" [disabled]="loginForm.invalid">Ingresar</button>
