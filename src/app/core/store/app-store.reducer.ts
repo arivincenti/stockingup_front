@@ -1,6 +1,6 @@
 import { ActionReducerMap } from '@ngrx/store';
 import { InjectionToken } from '@angular/core';
-import * as AccountReducer from '../../pages/account/store/reducer/account.reducer';
+import * as AccountReducer from '../../modules/account/store/reducer/account.reducer';
 
 export interface AppState {
   account: AccountReducer.AccountState;

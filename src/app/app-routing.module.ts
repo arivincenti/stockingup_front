@@ -7,13 +7,13 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
-      import('./pages/account/account.module').then((m) => m.AccountModule),
+      import('./modules/account/account.module').then((m) => m.AccountModule),
   },
   {
     path: 'app',
     canActivate: [IsLoggedGuard],
     loadChildren: () =>
-      import('./pages/dashboard/dashboard.module').then(
+      import('./modules/dashboard/dashboard.module').then(
         (m) => m.DashboardModule
       ),
   },

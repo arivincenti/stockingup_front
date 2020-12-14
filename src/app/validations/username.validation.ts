@@ -1,6 +1,6 @@
 import { AbstractControl, FormGroup } from '@angular/forms';
 import { map } from 'rxjs/internal/operators/map';
-import { AccountService } from 'src/app/pages/account/services/account.service';
+import { AccountService } from 'src/app/modules/account/services/account.service';
 import { debounceTime } from 'rxjs/operators';
 
 export class UserNameValidation {

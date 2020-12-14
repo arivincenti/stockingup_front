@@ -1,0 +1,50 @@
+
+.container{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.sidenav{
+  background-color: #ff8800;
+  width: 150px;
+}
+
+  /*
+  * Navigation
+  */
+  .mat-list-item .button{
+    color: rgba(255, 255, 255, .8);
+    font-size: .8em;
+  }
+
+  .mat-list-item .button:hover{
+    color: rgba(255, 255, 255, 1);
+  }
+
+  .mat-list-item .button .icon{
+    font-size: 1.5em;
+  }
+
+.toolbar{
+  color: white;
+  background-color: #ff8800;;
+  display: flex;
+}
+
+.mat-sidenav-content .toolbar{
+    color: rgb(64, 64, 64);
+    background-color: #ffffff;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .mat-sidenav-content .toolbar span{
+    background-color: #d71717;
+  }
+
+  .content{
+    margin: 20px;
+  }

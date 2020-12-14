@@ -1,0 +1,19 @@
+<div class="header">
+  <h2>Mis negocios</h2>
+  <button mat-button color="warn">Nuevo negocio</button>
+</div>
+<hr>
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>Reyes</mat-card-title>
+    <mat-card-subtitle>Simon Bolivar 260</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+  <mat-card-content>
+    <p>Sucursal | <b>Casa central</b></p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button [routerLink]="['./12345']" color="warn" mat-flat-button>Ingresar</button>
+  </mat-card-actions>
+</mat-card>

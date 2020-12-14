@@ -7,7 +7,7 @@ import {
 } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
-import { tokenSelector } from 'src/app/pages/account/store/selectors/account.selectors';
+import { tokenSelector } from 'src/app/modules/account/store/selectors/account.selectors';
 import { AppState } from 'src/app/core/store/app-store.reducer';
 
 @Injectable({

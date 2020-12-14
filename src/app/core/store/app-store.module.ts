@@ -7,7 +7,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { localStorageSync } from 'ngrx-store-localstorage';
 import { EffectsModule } from '@ngrx/effects';
 import { effects } from './effects/index.effects';
-import { AccountService } from 'src/app/pages/account/services/account.service';
+import { AccountService } from 'src/app/modules/account/services/account.service';
 
 export function localStorageSyncReducer(
   reducer: ActionReducer<any>
